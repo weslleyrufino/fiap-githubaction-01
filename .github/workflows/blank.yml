@@ -1,0 +1,25 @@
+name: Meu Primeiro Workflow no GitHub Actions
+
+# Essa diretiva "on" diz como esse workflow será ativado/executado, se vai ser a partir de um commit no repositório, se vai ser disparado de forma manual, se vai ser disparado a partir de um pull request...
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ] # para qualquer alteração que acontecer na main o workflow será executado.
+  pull_request:
+    branches: [ "main" ] # todo pull request que acontecer na main, também irá disparar esse workflow.
+
+  # vai habilitar que nós executamos o nosso workflow de forma manual, caso queira clicar em um botão e disparar esse workflow.
+  workflow_dispatch: 
+  
+# Criação dos jobs para executar o workflow.
+jobs:
+  # aqui crio nome do meu job. Estava como build, mas posso alterar para qualquer nome.
+  job01:
+    # Preciso definir onde esse job será inicializado. Posso utilizar a diretiva "runs-on" e posso trabalhar com 3 tipos de runers (mac, ubuntu ou windows).
+    runs-on: ubuntu-latest
+    # Todo workflow precisa ter pelo menos 1 ou mais steps.
+    steps:
+      # posso utilizar uma action de tipo checkout. Baixa o código do repositório o qual estou conectado, para então executar as etapas como: Compilar o código, compilar uma imagem docker...
+      - uses: actions/checkout@v4
+      - name: Run a one-line script
+        run: echo Olá, turma da disciplica GitHub Action.

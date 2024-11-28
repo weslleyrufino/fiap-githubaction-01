@@ -1,3 +1,4 @@
+# Definindo o nome do workflow.
 name: Meu Primeiro Workflow no GitHub Actions
 
 # Essa diretiva "on" diz como esse workflow será ativado/executado, se vai ser a partir de um commit no repositório, se vai ser disparado de forma manual, se vai ser disparado a partir de um pull request...
@@ -14,7 +15,7 @@ on:
 # Criação dos jobs para executar o workflow.
 jobs:
   # aqui crio nome do meu job. Estava como build, mas posso alterar para qualquer nome.
-  job01:
+  job01: # o espaçamento precisa ser de um tab, não posso dar somente um espaço porque se fizer isso não irá funcionar. Arquivos e .yml são orientados a tabulação.
     # Preciso definir onde esse job será inicializado. Posso utilizar a diretiva "runs-on" e posso trabalhar com 3 tipos de runers (mac, ubuntu ou windows).
     runs-on: ubuntu-latest
     # Todo workflow precisa ter pelo menos 1 ou mais steps.
